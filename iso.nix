@@ -131,7 +131,8 @@
 
   # 启用 ZFS 支持
   boot.supportedFilesystems = [ "zfs" "btrfs" "xfs" "ext4" "ntfs" "vfat" ];
-  boot.zfs.enableUnstable = true;
+  # 对于用于救援/安装的 Live ISO，使用稳定的 ZFS 模块以提高可靠性
+  boot.zfs.enableUnstable = false;
   
   # 内核模块和固件
   boot.kernelModules = [ "kvm-intel" "kvm-amd" ];
