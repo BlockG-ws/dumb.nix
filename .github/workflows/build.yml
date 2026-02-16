@@ -41,6 +41,17 @@ jobs:
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           skipPush: ${{ secrets.CACHIX_AUTH_TOKEN == '' }}
 
+      - name: Cachix status (push enabled)
+        if: ${{ secrets.CACHIX_AUTH_TOKEN != '' }}
+        run: |
+          echo "Cachix push is ENABLED (CACHIX_AUTH_TOKEN is set)."
+          echo "Build outputs will be pushed to the 'dumb-nixos' Cachix cache."
+
+      - name: Cachix status (push disabled)
+        if: ${{ secrets.CACHIX_AUTH_TOKEN == '' }}
+        run: |
+          echo "Cachix push is DISABLED (CACHIX_AUTH_TOKEN is not configured)."
+          echo "Builds will still work, but may be slower because results are not pushed to Cachix."
       - name: Build ISO
         run: |
           nix build .#iso -L --show-trace
