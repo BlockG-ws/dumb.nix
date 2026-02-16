@@ -147,7 +147,7 @@
     cpu.amd.updateMicrocode = true;
     
     # OpenGL/显卡支持
-    graphics = {
+    opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
