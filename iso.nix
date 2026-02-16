@@ -87,10 +87,12 @@
   # 配置 fcitx5 输入法
   i18n.inputMethod = {
     enabled = "fcitx5";
+    waylandFrontend = true;
     fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
+      fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
+      fcitx5-chinese-addons  # table input method support
+      fcitx5-nord            # a color theme
       fcitx5-configtool
-      fcitx5-gtk
     ];
   };
 
@@ -109,8 +111,14 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      mplus-outline-fonts.githubRelease
+      dina-font
+      proggyfonts
       wqy_zenhei
       wqy_microhei
       source-han-sans
