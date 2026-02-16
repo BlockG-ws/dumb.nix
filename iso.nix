@@ -19,7 +19,7 @@
     volumeID = "DUMB_NIXOS";
     
     # 添加 EFI 引导支持
-    isoImage.appendToMenuLabel = " Live ISO with Tools";
+    appendToMenuLabel = " Live ISO with Tools";
   };
 
   # 系统配置
