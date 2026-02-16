@@ -51,7 +51,7 @@ jobs:
           echo "iso_name=$ISO_NAME" >> $GITHUB_OUTPUT
           echo "iso_size=$ISO_SIZE" >> $GITHUB_OUTPUT
           
-          # 计算 SHA256
+          # Calculate SHA256 checksum
           SHA256=$(sha256sum "$ISO_PATH" | cut -d' ' -f1)
           echo "sha256=$SHA256" >> $GITHUB_OUTPUT
           
