@@ -73,4 +73,4 @@ All tools are pre-configured and ready to use out of the box.
 
 ---
 
-[Unreleased]: https://github.com/BlockG-ws/dumb.nix/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/BlockG-ws/dumb.nix/compare/HEAD...HEAD

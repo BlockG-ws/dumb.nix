@@ -253,7 +253,7 @@
     fsarchiver
     
     # 数据恢复工具
-    testdisk
+    testdisk       # 包含 photorec 数据恢复工具
     ddrescue
     
     # 引导修复工具
@@ -333,7 +333,7 @@
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
-    GLFW_IM_MODULE = "ibus";
+    GLFW_IM_MODULE = "fcitx";
   };
 
   # 自动启动 fcitx5
