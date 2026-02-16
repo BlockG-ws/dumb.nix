@@ -5,12 +5,6 @@ TriggerKeys=
 EnumerateForwardKeys=Control+space
 EnumerateBackwardKeys=
 
-[Hotkey/ActivateKeys]
-0=Control+space
-
-[Hotkey/DeactivateKeys]
-0=Control+space
-
 [Behavior]
 # 在程序中共享输入状态
 ShareInputState=No
