@@ -277,7 +277,7 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.xfce4-terminal
-    mousepad
+    xfce.mousepad
     
     # 浏览器
     firefox
