@@ -9,7 +9,7 @@
   # ISO 配置
   isoImage = {
     # ISO 文件名
-    isoName = "dumb-nixos-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.iso";
+    isoName = lib.mkForce "dumb-nixos-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.iso";
     
     # 通过 shim 支持安全启动
     makeEfiBootable = true;
@@ -131,8 +131,6 @@
 
   # 启用 ZFS 支持
   boot.supportedFilesystems = [ "zfs" "btrfs" "xfs" "ext4" "ntfs" "vfat" ];
-  # 对于用于救援/安装的 Live ISO，使用稳定的 ZFS 模块以提高可靠性
-  boot.zfs.enableUnstable = false;
   
   # 内核模块和固件
   boot.kernelModules = [ "kvm-intel" "kvm-amd" ];
@@ -147,7 +145,7 @@
     cpu.amd.updateMicrocode = true;
     
     # OpenGL/显卡支持
-    graphics = {
+    opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
@@ -246,8 +244,7 @@
     ntfsprogs       # NTFS 工具
     ms-sys          # 修复 Windows 引导
     
-    # Clonezilla 和相关工具
-    clonezilla
+    # Clonezilla 相关工具 (注：clonezilla 本身不作为 nixpkgs 包提供)
     partclone
     partimage
     fsarchiver
@@ -280,7 +277,7 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.xfce4-terminal
-    mousepad
+    xfce.mousepad
     
     # 浏览器
     firefox

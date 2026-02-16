@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-02-16
+
 ### Added
 - Initial NixOS Live ISO configuration with comprehensive features
 - XFCE4 desktop environment with auto-login
@@ -42,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Quick start guide (QUICKSTART.md)
   - Tool reference (TOOLS.md)
   - Contributing guidelines (CONTRIBUTING.md)
-- GitHub Actions workflow for automatic ISO building
+- GitHub Actions workflow for automatic ISO building (using official NixOS cache)
 - Automated release with checksums
 - Build script for local development
 
@@ -73,4 +75,5 @@ All tools are pre-configured and ready to use out of the box.
 
 ---
 
-[Unreleased]: https://github.com/BlockG-ws/dumb.nix/compare/HEAD...HEAD
+[Unreleased]: https://github.com/BlockG-ws/dumb.nix/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/BlockG-ws/dumb.nix/releases/tag/v0.1.0
