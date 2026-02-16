@@ -4,3 +4,22 @@ result-*
 
 # Ignore automatically generated direnv output
 .direnv
+
+# Nix build artifacts
+*.iso
+*.img
+
+# Temporary files
+*~
+*.swp
+*.swo
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+

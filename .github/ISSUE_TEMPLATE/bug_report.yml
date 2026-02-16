@@ -1,0 +1,100 @@
+name: Bug Report / 问题报告
+description: Report a bug or issue with Dumb NixOS
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the information below.
+        感谢您花时间报告问题！请填写以下信息。
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description / 问题描述
+      description: A clear description of the bug
+      placeholder: What happened? / 发生了什么？
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce / 重现步骤
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Boot from USB
+        2. Open terminal
+        3. Run command...
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior / 期望行为
+      description: What you expected to happen
+      placeholder: What should have happened? / 应该发生什么？
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior / 实际行为
+      description: What actually happened
+      placeholder: What actually happened? / 实际发生了什么？
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: ISO Version / ISO 版本
+      description: Which version of the ISO are you using?
+      placeholder: e.g., v1.0.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: boot_mode
+    attributes:
+      label: Boot Mode / 启动模式
+      options:
+        - UEFI
+        - BIOS/Legacy
+        - Not sure / 不确定
+    validations:
+      required: true
+
+  - type: textarea
+    id: hardware
+    attributes:
+      label: Hardware Information / 硬件信息
+      description: Information about your hardware (CPU, RAM, GPU, etc.)
+      placeholder: |
+        CPU: Intel Core i5
+        RAM: 8GB
+        GPU: NVIDIA GTX 1060
+        ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs / 错误日志
+      description: Any relevant error messages or logs
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context / 额外信息
+      description: Any other context about the problem
+    validations:
+      required: false

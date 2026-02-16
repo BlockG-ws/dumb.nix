@@ -1,0 +1,12 @@
+[Hotkey]
+# 触发输入法的快捷键
+TriggerKeys=
+# 使用 Ctrl+Space 作为输入法切换键
+EnumerateForwardKeys=Control+space
+EnumerateBackwardKeys=
+
+[Behavior]
+# 在程序中共享输入状态
+ShareInputState=No
+# 默认输入法状态
+DefaultInputMethod=pinyin
