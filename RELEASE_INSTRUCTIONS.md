@@ -1,6 +1,6 @@
-# Release Instructions for v0.1.0
+# Release Instructions for Dumb NixOS
 
-This document provides instructions for creating the initial v0.1.0 release of Dumb NixOS.
+This document provides instructions for creating releases of Dumb NixOS.
 
 ## Prerequisites
 
