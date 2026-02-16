@@ -31,40 +31,30 @@ echo ""
 # Build the ISO
 nix build .#iso -L
 
-if [ $? -eq 0 ]; then
+echo ""
+echo "==================================="
+echo "✓ Build successful!"
+echo "==================================="
+echo ""
+
+# Find the ISO file
+ISO_PATH=$(find result/iso -name "*.iso" -type f | head -n 1)
+
+if [ -n "$ISO_PATH" ]; then
+    ISO_SIZE=$(du -h "$ISO_PATH" | cut -f1)
+    ISO_NAME=$(basename "$ISO_PATH")
+
+    echo "ISO Information:"
+    echo "  Name: $ISO_NAME"
+    echo "  Size: $ISO_SIZE"
+    echo "  Path: $ISO_PATH"
     echo ""
-    echo "==================================="
-    echo "✓ Build successful!"
-    echo "==================================="
+    echo "SHA256 Checksum:"
+    sha256sum "$ISO_PATH"
     echo ""
-    
-    # Find the ISO file
-    ISO_PATH=$(find result/iso -name "*.iso" -type f | head -n 1)
-    
-    if [ -n "$ISO_PATH" ]; then
-        ISO_SIZE=$(du -h "$ISO_PATH" | cut -f1)
-        ISO_NAME=$(basename "$ISO_PATH")
-        
-        echo "ISO Information:"
-        echo "  Name: $ISO_NAME"
-        echo "  Size: $ISO_SIZE"
-        echo "  Path: $ISO_PATH"
-        echo ""
-        echo "SHA256 Checksum:"
-        sha256sum "$ISO_PATH"
-        echo ""
-        echo "You can now write this ISO to a USB drive:"
-        echo "  sudo dd if=$ISO_PATH of=/dev/sdX bs=4M status=progress oflag=sync"
-        echo ""
-    else
-        echo "⚠️  Warning: Could not find ISO file in result directory"
-    fi
+    echo "You can now write this ISO to a USB drive:"
+    echo "  sudo dd if=$ISO_PATH of=/dev/sdX bs=4M status=progress oflag=sync"
+    echo ""
 else
-    echo ""
-    echo "==================================="
-    echo "❌ Build failed!"
-    echo "==================================="
-    echo ""
-    echo "Please check the error messages above."
-    exit 1
+    echo "⚠️  Warning: Could not find ISO file in result directory"
 fi
