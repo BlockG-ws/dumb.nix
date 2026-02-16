@@ -34,7 +34,7 @@ The GitHub Actions workflow will automatically:
 4. In "Choose a tag", enter `v0.1.0` and select "Create new tag: v0.1.0 on publish"
 5. Set the target to `master`
 6. Set the release title to: `v0.1.0 - Initial Dumb NixOS Live ISO`
-7. The release description will be automatically populated by the workflow
+7. Leave the release description empty - it will be automatically populated when the workflow runs
 8. Click "Publish release"
 
 The workflow will be triggered and will build and attach the ISO file to the release.
