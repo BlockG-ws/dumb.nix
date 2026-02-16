@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 # Build script for Dumb NixOS ISO
+# Usage:
+#   If you see "Permission denied" when running ./build.sh, first run:
+#     chmod +x build.sh
+#   Then run:
+#     ./build.sh
 
 set -e
 
