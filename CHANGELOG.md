@@ -7,9 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-- Removed Cachix integration from build workflow to fix secrets configuration issues
-
 ## [0.1.0] - 2026-02-16
 
 ### Added
@@ -47,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Quick start guide (QUICKSTART.md)
   - Tool reference (TOOLS.md)
   - Contributing guidelines (CONTRIBUTING.md)
-- GitHub Actions workflow for automatic ISO building
+- GitHub Actions workflow for automatic ISO building (using official NixOS cache)
 - Automated release with checksums
 - Build script for local development
 
