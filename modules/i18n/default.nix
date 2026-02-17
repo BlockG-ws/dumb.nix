@@ -56,22 +56,7 @@
   };
 
   # 自动启动 fcitx5
-  environment.etc."xdg/autostart/fcitx5.desktop".text = ''
-    [Desktop Entry]
-    Name=Fcitx 5
-    GenericName=Input Method
-    Comment=Start Fcitx 5
-    Exec=fcitx5
-    Icon=fcitx
-    Terminal=false
-    Type=Application
-    Categories=System;Utility;
-    StartupNotify=false
-    X-GNOME-Autostart-Phase=Applications
-    X-GNOME-AutoRestart=true
-    X-GNOME-Autostart-Notify=false
-    X-KDE-autostart-after=panel
-  '';
+  environment.etc."xdg/autostart/fcitx5.desktop".source = ../../../config/fcitx5/fcitx5.desktop;
 
   # 预置 fcitx5 配置文件
   environment.etc."skel/.config/fcitx5/config".source = ../../../config/fcitx5/config;
