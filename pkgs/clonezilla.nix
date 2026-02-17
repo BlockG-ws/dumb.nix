@@ -78,36 +78,13 @@ stdenv.mkDerivation rec {
   ];
 
   # 修复 shebang 和注入依赖
+  postPatch = ''
+    patchShebangs --build .
+  '';
+
   postInstall = ''
-    # 修复所有脚本的 shebang 和依赖
-    for dir in "$out"/bin "$out"/sbin "$out"/usr/bin "$out"/usr/sbin; do
-      [ -d "$dir" ] || continue
-      
-      for f in "$dir"/*; do
-        [ -f "$f" ] || continue
-        
-        # 跳过二进制文件
-        if file "$f" | grep -q "ELF"; then
-          continue
-        fi
-        
-        # 读取第一行
-        local shebang=$(head -1 "$f")
-        
-        # 修复 shebang 行
-        case "$shebang" in
-          *#!/bin/bash*)
-            sed -i "1s|.*|#!${bash}/bin/bash|" "$f"
-            ;;
-          *#!/bin/sh*)
-            sed -i "1s|.*|#!${bash}/bin/sh|" "$f"
-            ;;
-          *#!/usr/bin/perl*|*#!/usr/bin/env\ perl*)
-            sed -i "1s|.*|#!${perl}/bin/perl|" "$f"
-            ;;
-        esac
-      done
-    done
+    # 修复安装后的脚本 shebang
+    patchShebangs "$out"
     
     # 为脚本注入依赖
     for dir in "$out"/bin "$out"/sbin "$out"/usr/bin "$out"/usr/sbin; do
