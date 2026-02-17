@@ -10,15 +10,17 @@
     
     displayManager = {
       lightdm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "nixos";
-      };
     };
-    
-    # 启用触摸板支持
-    libinput.enable = true;
   };
+  
+  # 自动登录配置（已移至 services.displayManager）
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "nixos";
+  };
+  
+  # 启用触摸板支持（已移至 services.libinput）
+  services.libinput.enable = true;
 
   # 启用 GVfs 以支持 Thunar 挂载
   services.gvfs.enable = true;

@@ -28,8 +28,8 @@
     
     # 蓝牙
     bluetooth.enable = true;
-    
-    # 声音
-    pulseaudio.enable = false;
   };
+  
+  # 声音设置（已移至 services.pulseaudio）
+  services.pulseaudio.enable = false;
 }
