@@ -1,7 +1,11 @@
 { pkgs, ... }:
 {
-  boot.supportedFilesystems = ["btrfs" "xfs" "ext4" "ntfs" "vfat" ];
-
+  # 使用最新的内核
+  boot.kernelPackages = pkgs.linuxPackages;
+  
+  # 启用 ZFS 支持
+  boot.supportedFilesystems = [ "zfs" "btrfs" "xfs" "ext4" "ntfs" "vfat" ];
+  
   # 内核模块和固件
   boot.kernelModules = [ "kvm-intel" "kvm-amd" ];
   
