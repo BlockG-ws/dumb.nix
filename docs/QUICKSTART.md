@@ -59,7 +59,7 @@ ssh nixos@<ip-address>
 ```
 
 #### 5. Reset Windows Password
-See detailed guide in [README_CN.md](README_CN.md#1-重置-windows-密码)
+See detailed guide in [README_CN.md](../README_CN.md#1-重置-windows-密码)
 
 #### 6. Backup with Clonezilla
 ```bash
@@ -69,9 +69,9 @@ Follow the on-screen wizard
 
 ### Need Help?
 
-- 📖 [Full Documentation](README.md)
+- 📖 [Full Documentation](../README.md)
 - 🛠️ [Tool Reference](TOOLS.md)
-- 🇨🇳 [中文文档](README_CN.md)
+- 🇨🇳 [中文文档](../README_CN.md)
 - 💬 [Issues](https://github.com/BlockG-ws/dumb.nix/issues)
 
 ---
@@ -131,7 +131,7 @@ ssh nixos@<IP地址>
 ```
 
 #### 5. 重置 Windows 密码
-查看 [README_CN.md](README_CN.md#1-重置-windows-密码) 中的详细指南
+查看 [README_CN.md](../README_CN.md#1-重置-windows-密码) 中的详细指南
 
 #### 6. 使用 Clonezilla 备份
 ```bash
@@ -141,9 +141,9 @@ sudo clonezilla
 
 ### 需要帮助？
 
-- 📖 [完整文档](README_CN.md)
+- 📖 [完整文档](../README_CN.md)
 - 🛠️ [工具参考](TOOLS.md)
-- 🇬🇧 [English Docs](README.md)
+- 🇬🇧 [English Docs](../README.md)
 - 💬 [问题反馈](https://github.com/BlockG-ws/dumb.nix/issues)
 
 ---
@@ -218,5 +218,5 @@ nano iso.nix
 ./build.sh
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guide.
-查看 [CONTRIBUTING.md](CONTRIBUTING.md) 了解详细的开发指南。
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for detailed development guide.
+查看 [CONTRIBUTING.md](../CONTRIBUTING.md) 了解详细的开发指南。

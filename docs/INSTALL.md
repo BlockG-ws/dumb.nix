@@ -422,7 +422,7 @@ sudo ntfsfix /dev/sda1
 ## Next Steps
 
 After successfully booting the Live ISO, see:
-- [README_CN.md](README_CN.md) - Detailed Chinese documentation
+- [README_CN.md](../README_CN.md) - Detailed Chinese documentation
 - [TOOLS.md](TOOLS.md) - Complete tool reference
 - [QUICKSTART.md](QUICKSTART.md) - Quick reference guide
 
