@@ -2,7 +2,8 @@
 
 {
   imports = [
-    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    "${modulesPath}/profiles/minimal.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-base.nix"
     "${modulesPath}/installer/cd-dvd/channel.nix"
     
     # 自定义模块
