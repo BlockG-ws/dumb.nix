@@ -31,11 +31,12 @@
       noto-fonts-color-emoji  # 已重命名（原 noto-fonts-emoji）
       source-han-sans
       source-han-serif
+      nerd-fonts.fira-code
     ];
     
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Noto Sans Mono CJK SC" ];
+        monospace = [ "Noto Sans Mono CJK SC" "FiraCode Nerd Font" ];
         sansSerif = [ "Noto Sans CJK SC" ];
         serif = [ "Noto Serif CJK SC" ];
       };
@@ -44,16 +45,6 @@
 
   # 时区设置
   time.timeZone = "Asia/Shanghai";
-
-  # 配置环境变量
-  environment.sessionVariables = {
-    # fcitx5 环境变量
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-    SDL_IM_MODULE = "fcitx";
-    GLFW_IM_MODULE = "ibus";
-  };
 
   # 自动启动 fcitx5
   environment.etc."xdg/autostart/fcitx5.desktop".source = ../../config/fcitx5/fcitx5.desktop;
