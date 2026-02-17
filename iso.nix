@@ -24,10 +24,12 @@
   ];
 
   # ISO 配置
-  isoImage = {
+  image = {
     # ISO 文件名
-    isoName = lib.mkForce "dumb-nixos-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.iso";
-    
+    fileName = lib.mkForce "dumb-nixos-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.iso";
+  };
+  
+  isoImage = {
     # 通过 shim 支持安全启动
     makeEfiBootable = true;
     makeUsbBootable = true;
