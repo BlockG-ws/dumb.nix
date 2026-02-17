@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     # 磁盘工具
     gparted
-    gnome.gnome-disk-utility
+    gnome-disk-utility  # GNOME 磁盘工具 (去除 gnome. 前缀)
     smartmontools
     hdparm
     sdparm
@@ -13,7 +13,7 @@
     e2fsprogs
     dosfstools
     ntfs3g
-    exfat
+    exfatprogs  # 现代 exFAT 工具 (替代 exfat)
     btrfs-progs
     xfsprogs
     zfs

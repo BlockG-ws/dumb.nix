@@ -26,10 +26,11 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       noto-fonts-emoji
-      wqy_zenhei
-      wqy_microhei
+      wqy-zenhei
+      wqy-microhei
       source-han-sans
       source-han-serif
     ];

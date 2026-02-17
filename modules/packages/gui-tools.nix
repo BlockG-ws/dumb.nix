@@ -17,6 +17,6 @@
     xarchiver
     
     # 计算器
-    gnome.gnome-calculator
+    gnome-calculator  # GNOME 计算器 (去除 gnome. 前缀)
   ];
 }

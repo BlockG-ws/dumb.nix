@@ -19,10 +19,10 @@
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
-        intel-media-driver
-        vaapiIntel
+        intel-media-driver  # 新版 Intel GPU (Broadwell+)
+        intel-vaapi-driver  # 旧版 Intel GPU (替代 vaapiIntel)
       ];
     };
     
