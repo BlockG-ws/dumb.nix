@@ -44,4 +44,6 @@
 
   # 设置系统描述
   system.nixos.distroName = "Dumb NixOS";
+
+  allowUnfree = true;
 }
