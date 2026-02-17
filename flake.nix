@@ -7,25 +7,28 @@
 
   outputs = { self, nixpkgs }: 
    let
-    pkgsWithConfig = system: nixpkgs.legacyPackages.${system}.extend (final: prev: {
-      clonezilla = final.callPackage ./pkgs/clonezilla.nix { };
-    });
-  in
-  {
-    nixosConfigurations = {
-      iso = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          pkgs = pkgsWithConfig "x86_64-linux";
-        };
-        modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-          }
-          ./iso.nix
-        ];
-      };
-    };
+     system = "x86_64-linux";
+     pkgsWithConfig = nixpkgs.legacyPackages.${system}.extend (final: prev: {
+       clonezilla = final.callPackage ./pkgs/clonezilla.nix { };
+     });
+   in
+   {
+     nixosConfigurations = {
+       iso = nixpkgs.lib.nixosSystem {
+         inherit system;
+         pkgs = pkgsWithConfig;
+         modules = [
+           {
+             nixpkgs = {
+               inherit pkgs;
+               config.allowUnfree = true;
+               config.allowBroken = false;
+             };
+           }
+           ./iso.nix
+         ];
+       };
+     };
 
     # 方便构建的输出
     packages.x86_64-linux = {
