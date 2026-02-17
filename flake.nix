@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs }: 
    let
-    pkgsWithCustom = system: nixpkgs.legacyPackages.${system}.extend (final: prev: {
+    pkgsWithConfig = system: nixpkgs.legacyPackages.${system}.extend (final: prev: {
       clonezilla = final.callPackage ./pkgs/clonezilla.nix { };
     });
   in
@@ -15,12 +15,14 @@
     nixosConfigurations = {
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {
+          pkgs = pkgsWithConfig "x86_64-linux";
+        };
         modules = [
-          ./iso.nix
           {
-            nixpkgs.pkgs = pkgsWithCustom "x86_64-linux";
             nixpkgs.config.allowUnfree = true;
           }
+          ./iso.nix
         ];
       };
     };

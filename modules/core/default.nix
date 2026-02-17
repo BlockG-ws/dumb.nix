@@ -9,9 +9,6 @@
     info.enable = true;
   };
 
-  # 允许非自由软件
-  nixpkgs.config.allowUnfree = true;
-
   # Nix 配置
   nix = {
     settings = {
