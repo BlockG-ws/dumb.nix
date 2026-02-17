@@ -22,7 +22,7 @@
 , xz
 , pixz
 , lzop
-, ecryptfs
+, gocryptfs  # 替代 ecryptfs（已被移除）
 , screen
 , perl
 , cifs-utils
@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
   src = fetchgit {
     url = "https://github.com/stevenshiau/clonezilla.git";
     rev = "v${version}";
-    hash = "sha256-N9HciJzHLB8t+AGe3t2BHSf+LyaTSGI2iNLKJK6VTf0=";
+    hash = "sha256-uvHe2Bq2NAAXZvDNBhCYAHNkKpdQPV0Q0mKsVTTRVKI=";
   };
 
   patches = [
@@ -68,7 +68,7 @@ stdenv.mkDerivation rec {
     xz
     pixz
     lzop
-    ecryptfs
+    gocryptfs  # 替代 ecryptfs（已被移除）
     screen
     perl
     cifs-utils
@@ -105,7 +105,7 @@ stdenv.mkDerivation rec {
               bash coreutils perl
               drbl partclone ntfs3g partimage pigz sshfs parted gptfdisk
               dosfstools gzip bzip2 pbzip2 lbzip2 lrzip xz pixz lzop
-              ecryptfs screen cifs-utils netcat-openbsd net-tools which
+              gocryptfs screen cifs-utils netcat-openbsd net-tools which
             ]}
         fi
       done

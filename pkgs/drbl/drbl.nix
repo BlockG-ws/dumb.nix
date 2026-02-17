@@ -26,6 +26,7 @@
 , curl
 , which
 , file
+, xxd
 }:
 
 stdenv.mkDerivation rec {
@@ -36,7 +37,7 @@ stdenv.mkDerivation rec {
     owner = "stevenshiau";
     repo = "drbl";
     rev = "v${version}";
-    hash = "sha256-xkOlRNq9ejWO63oDHej2ZXHA72UrJhVEkjwC8leD93c=";
+    hash = "sha256-8mX8rhyaRI3YPnom/qisIC4asXL15OII7v7LtJbYO5o=";
   };
 
   patches = [
@@ -46,6 +47,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [
     patch
     makeWrapper
+    xxd  # for building fail-mbr.bin
   ];
 
   # 根据 PKGBUILD，核心依赖只有 perl 和 bc

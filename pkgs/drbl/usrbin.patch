@@ -1,7 +1,7 @@
---- Makefile.orig	2013-05-30 17:56:44.323563977 +0100
-+++ Makefile	2013-05-30 17:57:35.139954480 +0100
-@@ -27,9 +27,9 @@
-
+--- a/Makefile
++++ b/Makefile
+@@ -32,9 +32,9 @@ pkg-misc:
+ 
  install:
  	# install exec files
 -	install -d $(DESTDIR)/usr/
