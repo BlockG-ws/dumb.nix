@@ -7,7 +7,8 @@
     ntfsprogs       # NTFS 工具
     ms-sys          # 修复 Windows 引导
     
-    # Clonezilla 相关工具 (注：clonezilla 本身不作为 nixpkgs 包提供)
+    # Clonezilla 相关工具
+    clonezilla
     partclone
     partimage
     fsarchiver

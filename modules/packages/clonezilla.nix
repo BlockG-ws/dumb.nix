@@ -4,7 +4,7 @@
     clonezilla
   ];
 
-  # 创建桌面快捷方式（可选）
+  # 创建桌面快捷方式
   environment.etc."skel/.local/share/applications/clonezilla.desktop".text = ''
     [Desktop Entry]
     Version=1.0
