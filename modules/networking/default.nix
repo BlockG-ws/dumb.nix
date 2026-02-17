@@ -24,12 +24,17 @@
   };
 
   # 设置 root 密码为 "nixos"
-  users.users.root.password = "nixos";
+  # 使用 mkForce 覆盖 installation-cd-minimal.nix 中的设置
+  users.users.root = {
+    password = lib.mkForce "nixos";
+    initialHashedPassword = lib.mkForce null;
+  };
 
   # 创建默认用户
   users.users.nixos = {
     isNormalUser = true;
-    password = "nixos";
+    password = lib.mkForce "nixos";
+    initialHashedPassword = lib.mkForce null;
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     uid = 1000;
   };
