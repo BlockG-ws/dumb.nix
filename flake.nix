@@ -6,7 +6,7 @@
   };
 
   outputs = { self, nixpkgs }: 
-  let
+   let
     pkgsWithCustom = system: nixpkgs.legacyPackages.${system}.extend (final: prev: {
       clonezilla = final.callPackage ./pkgs/clonezilla.nix { };
     });
@@ -19,6 +19,7 @@
           ./iso.nix
           {
             nixpkgs.pkgs = pkgsWithCustom "x86_64-linux";
+            nixpkgs.config.allowUnfree = true;
           }
         ];
       };
