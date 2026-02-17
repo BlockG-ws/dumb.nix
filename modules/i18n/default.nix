@@ -5,8 +5,8 @@
     enable = true;
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      fcitx5-configtool
+      qt6Packages.fcitx5-chinese-addons  # 已移至 qt6Packages
+      qt6Packages.fcitx5-configtool      # 已移至 qt6Packages
       fcitx5-gtk
     ];
   };
@@ -28,9 +28,7 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      noto-fonts-emoji
-      wqy-zenhei
-      wqy-microhei
+      noto-fonts-color-emoji  # 已重命名（原 noto-fonts-emoji）
       source-han-sans
       source-han-serif
     ];
@@ -58,9 +56,9 @@
   };
 
   # 自动启动 fcitx5
-  environment.etc."xdg/autostart/fcitx5.desktop".source = ../../../config/fcitx5/fcitx5.desktop;
+  environment.etc."xdg/autostart/fcitx5.desktop".source = ../../config/fcitx5/fcitx5.desktop;
 
   # 预置 fcitx5 配置文件
-  environment.etc."skel/.config/fcitx5/config".source = ../../../config/fcitx5/config;
-  environment.etc."skel/.config/fcitx5/profile".source = ../../../config/fcitx5/profile;
+  environment.etc."skel/.config/fcitx5/config".source = ../../config/fcitx5/config;
+  environment.etc."skel/.config/fcitx5/profile".source = ../../config/fcitx5/profile;
 }

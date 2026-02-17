@@ -17,11 +17,6 @@
     xfce.xfce4-screenshooter
     xfce.xfce4-taskmanager
     xfce.xfce4-clipman-plugin
-    
-    # 输入法相关
-    fcitx5
-    fcitx5-chinese-addons
-    fcitx5-configtool
-    fcitx5-gtk
+
   ];
 }
