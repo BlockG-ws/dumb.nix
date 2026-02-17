@@ -14,15 +14,7 @@
     ./modules/hardware
     ./modules/audio
     ./modules/services
-    ./modules/packages/essential.nix
-    ./modules/packages/network-tools.nix
-    ./modules/packages/system-maintenance.nix
-    ./modules/packages/recovery-tools.nix
-    ./modules/packages/development.nix
-    ./modules/packages/xfce-apps.nix
-    ./modules/packages/gui-tools.nix
-    ./modules/packages/clonezilla.nix
-    ./modules/packages/virtualization.nix
+    ./modules/packages
   ];
 
   # ISO 配置
@@ -39,8 +31,8 @@
     # 设置卷标
     volumeID = "DUMB_NIXOS";
     
-    # 添加 EFI 引导支持
-    appendToMenuLabel = " Live ISO with Tools";
+    # 添加后缀
+    appendToMenuLabel = " (Live ISO with Tools)";
 
     compressImage = true;  # 压缩 ISO 镜像以节省空间
   };
