@@ -33,8 +33,6 @@
     
     # 添加后缀
     appendToMenuLabel = " (Live ISO with Tools)";
-
-    compressImage = true;  # 压缩 ISO 镜像以节省空间
   };
 
   # 系统配置
