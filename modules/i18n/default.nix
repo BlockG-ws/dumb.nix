@@ -2,7 +2,8 @@
 {
   # 配置 fcitx5 输入法
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-chinese-addons
       fcitx5-configtool
@@ -46,7 +47,7 @@
   time.timeZone = "Asia/Shanghai";
 
   # 配置环境变量
-  environment.variables = {
+  environment.sessionVariables = {
     # fcitx5 环境变量
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";

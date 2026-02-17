@@ -2,7 +2,7 @@
 Name=Fcitx 5
 GenericName=Input Method
 Comment=Start Fcitx 5
-Exec=fcitx5
+Exec=fcitx5 -d
 Icon=fcitx
 Terminal=false
 Type=Application

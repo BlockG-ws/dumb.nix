@@ -6,8 +6,6 @@
     
     desktopManager.xfce = {
       enable = true;
-      enableXfwm = true;
-      noDesktop = false;
     };
     
     displayManager = {

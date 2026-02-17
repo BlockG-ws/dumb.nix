@@ -18,8 +18,6 @@
     # GPU 支持 (取代之前的 opengl)
     graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
       extraPackages = with pkgs; [
         vaapiVdpau
         libvdpau-va-gl
