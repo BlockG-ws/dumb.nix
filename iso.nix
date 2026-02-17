@@ -28,7 +28,7 @@
   # ISO 配置
   image = {
     # ISO 文件名
-    fileName = lib.mkForce "dumb-nixos-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}.iso";
+    baseName = lib.mkDefault "dumb-nix-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}";
   };
   
   isoImage = {
@@ -47,5 +47,5 @@
   system.stateVersion = "25.11";
 
   # 设置系统描述
-  system.nixos.distroName = "Dumb NixOS";
+  system.nixos.distroName = "dumbNix";
 }
