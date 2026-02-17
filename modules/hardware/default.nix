@@ -9,9 +9,8 @@
   # 内核模块和固件
   boot.kernelModules = [ "kvm-intel" "kvm-amd" ];
   
-  # 包含几乎所有驱动
+  # 包含驱动和固件
   hardware = {
-    enableAllFirmware = true;
     enableRedistributableFirmware = true;
     
     # CPU 微码
