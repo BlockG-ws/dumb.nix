@@ -1,7 +1,7 @@
 { ... }:
 {
-  # 启用打印服务
-  services.printing.enable = true;
+  # 启用 kmscon
+  services.kmscon.enable = true;
 
   # 启用蓝牙服务
   services.blueman.enable = true;
