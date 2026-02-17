@@ -5,12 +5,21 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs }: 
+  let
+    pkgsWithCustom = system: nixpkgs.legacyPackages.${system}.extend (final: prev: {
+      clonezilla = final.callPackage ./pkgs/clonezilla.nix { };
+    });
+  in
+  {
     nixosConfigurations = {
       iso = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./iso.nix
+          {
+            nixpkgs.pkgs = pkgsWithCustom "x86_64-linux";
+          }
         ];
       };
     };

@@ -20,6 +20,7 @@
     ./modules/packages/development.nix
     ./modules/packages/xfce-apps.nix
     ./modules/packages/gui-tools.nix
+    ./modules/packages/clonezilla.nix
   ];
 
   # ISO 配置
