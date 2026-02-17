@@ -21,6 +21,7 @@
     ./modules/packages/xfce-apps.nix
     ./modules/packages/gui-tools.nix
     ./modules/packages/clonezilla.nix
+    ./modules/packages/virtualization.nix
   ];
 
   # ISO 配置
