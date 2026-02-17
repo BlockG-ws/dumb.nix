@@ -8,21 +8,20 @@
   outputs = { self, nixpkgs }: 
    let
      system = "x86_64-linux";
-     pkgsWithConfig = nixpkgs.legacyPackages.${system}.extend (final: prev: {
-       clonezilla = final.callPackage ./pkgs/clonezilla.nix { };
-     });
    in
    {
      nixosConfigurations = {
        iso = nixpkgs.lib.nixosSystem {
          inherit system;
-         pkgs = pkgsWithConfig;
          modules = [
            {
              nixpkgs = {
-               inherit pkgs;
                config.allowUnfree = true;
-               config.allowBroken = false;
+               overlays = [
+                 (final: prev: {
+                   clonezilla = final.callPackage ./pkgs/clonezilla.nix { };
+                 })
+               ];
              };
            }
            ./iso.nix
