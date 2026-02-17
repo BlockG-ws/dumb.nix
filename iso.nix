@@ -23,7 +23,7 @@
   };
 
   # 系统配置
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.11";
 
   # 网络配置
   networking = {
@@ -144,8 +144,8 @@
     cpu.intel.updateMicrocode = true;
     cpu.amd.updateMicrocode = true;
     
-    # OpenGL/显卡支持
-    opengl = {
+    # GPU 支持 (取代之前的 opengl)
+    graphics = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;

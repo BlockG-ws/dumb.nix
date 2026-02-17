@@ -2,7 +2,7 @@
   description = "Dumb NixOS - A comprehensive live ISO with hardware testing and system maintenance tools";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
 
   outputs = { self, nixpkgs }: {
