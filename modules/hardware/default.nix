@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  # 使用最新的内核
+  boot.kernelPackages = pkgs.linuxPackages;
+  
   # 启用 ZFS 支持
   boot.supportedFilesystems = [ "zfs" "btrfs" "xfs" "ext4" "ntfs" "vfat" ];
   
