@@ -1,7 +1,4 @@
-{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    # VirtualBox Guest Additions
-    VirtualBox-GuestAdditions
-  ];
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
 }
