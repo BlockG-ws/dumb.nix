@@ -1,0 +1,37 @@
+{ pkgs, ... }:
+{
+  # 启用 ZFS 支持
+  boot.supportedFilesystems = [ "zfs" "btrfs" "xfs" "ext4" "ntfs" "vfat" ];
+  
+  # 内核模块和固件
+  boot.kernelModules = [ "kvm-intel" "kvm-amd" ];
+  
+  # 包含几乎所有驱动
+  hardware = {
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+    
+    # CPU 微码
+    cpu.intel.updateMicrocode = true;
+    cpu.amd.updateMicrocode = true;
+    
+    # GPU 支持 (取代之前的 opengl)
+    graphics = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+        intel-media-driver
+        vaapiIntel
+      ];
+    };
+    
+    # 蓝牙
+    bluetooth.enable = true;
+    
+    # 声音
+    pulseaudio.enable = false;
+  };
+}

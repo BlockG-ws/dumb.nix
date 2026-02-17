@@ -1,0 +1,33 @@
+{ pkgs, ... }:
+{
+  # 启用 XFCE4 桌面环境
+  services.xserver = {
+    enable = true;
+    
+    desktopManager.xfce = {
+      enable = true;
+      enableXfwm = true;
+      noDesktop = false;
+    };
+    
+    displayManager = {
+      lightdm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = "nixos";
+      };
+    };
+    
+    # 启用触摸板支持
+    libinput.enable = true;
+  };
+
+  # 启用 GVfs 以支持 Thunar 挂载
+  services.gvfs.enable = true;
+
+  # 启用 udisks2
+  services.udisks2.enable = true;
+
+  # 启用 dbus
+  services.dbus.enable = true;
+}
