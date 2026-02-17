@@ -17,11 +17,12 @@
            {
              nixpkgs = {
                config.allowUnfree = true;
-               overlays = [
-                 (final: prev: {
-                   clonezilla = final.callPackage ./pkgs/clonezilla.nix { };
-                 })
-               ];
+                overlays = [
+                  (final: prev: {
+                    drbl = final.callPackage ./pkgs/drbl/drbl.nix { };
+                    clonezilla = final.callPackage ./pkgs/clonezilla/clonezilla.nix { };
+                  })
+                ];
              };
            }
            ./iso.nix
