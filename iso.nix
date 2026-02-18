@@ -20,14 +20,15 @@
   # ISO 配置
   image = {
     # ISO 文件名
-    baseName = lib.mkDefault "dumb-nix-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}";
+    baseName = lib.mkForce "dumb-nix-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}";
+    fileName = lib.mkDefault "${config.image.baseName}.${config.image.extension}";
   };
-  
+
   isoImage = {
     # 通过 shim 支持安全启动
     makeEfiBootable = true;
     makeUsbBootable = true;
-    
+
     # 设置卷标
     volumeID = "DUMB_NIXOS";
     
