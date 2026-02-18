@@ -91,7 +91,17 @@ stdenv.mkDerivation rec {
     # 修复安装后的脚本 shebang
     patchShebangs "$out"
     
-    # 为所有脚本注入依赖
+    # 创建 bin 目录并复制可执行文件
+    mkdir -p "$out/bin"
+    if [ -d "$out/usr/bin" ]; then
+      for f in "$out"/usr/bin/*; do
+        if [ -f "$f" ]; then
+          cp "$f" "$out/bin/" || true
+        fi
+      done
+    fi
+    
+    # 为所有脚本注入依赖和环境变量
     for dir in "$out"/usr/bin "$out"/usr/sbin "$out"/usr/share/drbl/bin "$out"/usr/share/drbl/sbin; do
       [ -d "$dir" ] || continue
       
@@ -111,7 +121,8 @@ stdenv.mkDerivation rec {
               iproute2 iputils net-tools util-linux
               gawk gnused gnugrep findutils gnutar gzip bzip2 xz cpio
               rsync openssh wget curl which file
-            ]}
+            ]} \
+            --set-default DRBL_SCRIPT_PATH "$out/usr/share/drbl" \
         fi
       done
     done

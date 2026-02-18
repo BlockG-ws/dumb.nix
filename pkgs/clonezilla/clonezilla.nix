@@ -29,6 +29,8 @@
 , netcat-openbsd
 , net-tools
 , which
+, gnused
+, gnugrep
 }:
 
 stdenv.mkDerivation rec {
@@ -86,8 +88,27 @@ stdenv.mkDerivation rec {
     # 修复安装后的脚本 shebang
     patchShebangs "$out"
     
-    # 为脚本注入依赖
-    for dir in "$out"/bin "$out"/sbin "$out"/usr/bin "$out"/usr/sbin; do
+    # 修复脚本中 drbl 的硬编码路径
+    for f in "$out"/usr/bin/*; do
+      if [ -f "$f" ] && head -1 "$f" | grep -q "^#!"; then
+        # 替换 /usr/share/drbl 路径为实际的 drbl 包路径
+        sed -i "s|/usr/share/drbl|${drbl}/usr/share/drbl|g" "$f"
+        sed -i "s|/etc/drbl|${drbl}/etc/drbl|g" "$f"
+      fi
+    done
+    
+    # 创建 bin 目录并复制可执行文件
+    mkdir -p "$out/bin"
+    if [ -d "$out/usr/bin" ]; then
+      for f in "$out"/usr/bin/*; do
+        if [ -f "$f" ]; then
+          cp "$f" "$out/bin/" || true
+        fi
+      done
+    fi
+    
+    # 为脚本注入依赖和环境变量
+    for dir in "$out"/bin "$out"/usr/bin "$out"/usr/sbin; do
       [ -d "$dir" ] || continue
       
       for f in "$dir"/*; do
@@ -105,8 +126,9 @@ stdenv.mkDerivation rec {
               bash coreutils perl
               drbl partclone ntfs3g partimage pigz sshfs parted gptfdisk
               dosfstools gzip bzip2 pbzip2 lbzip2 lrzip xz pixz lzop
-              gocryptfs screen cifs-utils netcat-openbsd net-tools which
-            ]}
+              gocryptfs screen cifs-utils netcat-openbsd net-tools which gnused gnugrep
+            ]} \
+            --set-default DRBL_SCRIPT_PATH "${drbl}/usr/share/drbl" \
         fi
       done
     done
