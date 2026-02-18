@@ -97,8 +97,8 @@ sudo dd if=dumb-nixos-*.iso of=/dev/sdX bs=4M status=progress oflag=sync
 4. System will automatically start and login to XFCE4 desktop
 
 ### Default Login Credentials
-- **Username**: `nixos` or `root`
-- **Password**: `nixos`
+- **Username**: `alex`
+- **Password**: `Dumb.n1x`
 
 ## 🔨 Common Use Cases
 

@@ -18,7 +18,7 @@ lib.mkMerge [
     # 自动登录配置（已移至 services.displayManager）
     services.displayManager.autoLogin = {
       enable = true;
-      user = "nixos";
+      user = "alex";
     };
 
     # 启用触摸板支持（已移至 services.libinput）

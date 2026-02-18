@@ -109,8 +109,8 @@ sudo dd if=dumb-nixos-*.iso of=/dev/sdX bs=4M status=progress oflag=sync
 4. 系统将自动启动并登录到 XFCE4 桌面
 
 ### 默认登录信息
-- **用户名**: `nixos` 或 `root`
-- **密码**: `nixos`
+- **用户名**: `alex`
+- **密码**: `Dumb.n1x`
 
 ## 🔨 常见使用场景
 

@@ -2,7 +2,7 @@
 {
   # 网络配置
   networking = {
-    hostName = "dumb-nixos";
+    hostName = "dumb-nix";
     networkmanager.enable = true;
     wireless.enable = lib.mkForce false;  # NetworkManager 与 wireless 冲突
     # 禁用防火墙以便于在 Live ISO 环境中进行调试和系统维护
@@ -18,7 +18,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      PermitRootLogin = "yes";  # Live ISO 允许 root 登录以便于系统维护
+      PermitRootLogin = "no";
       PasswordAuthentication = true;  # Live ISO 使用简单密码便于快速访问
     };
   };
@@ -26,14 +26,13 @@
   # 设置 root 密码为 "nixos"
   # 使用 mkForce 覆盖 installation-cd-minimal.nix 中的设置
   users.users.root = {
-    password = lib.mkForce "nixos";
     initialHashedPassword = lib.mkForce null;
   };
 
   # 创建默认用户
-  users.users.nixos = {
+  users.users.alex = {
     isNormalUser = true;
-    password = lib.mkForce "nixos";
+    password = lib.mkForce "Dumb.n1x";
     initialHashedPassword = lib.mkForce null;
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     uid = 1000;
