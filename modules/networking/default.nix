@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   # 网络配置
   networking = {
@@ -33,6 +33,7 @@
   users.users.alex = {
     isNormalUser = true;
     password = lib.mkForce "Dumb.n1x";
+    shell = pkgs.zsh;
     initialHashedPassword = lib.mkForce null;
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     uid = 1000;
