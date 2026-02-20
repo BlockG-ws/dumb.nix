@@ -128,7 +128,7 @@ stdenv.mkDerivation rec {
               dosfstools gzip bzip2 pbzip2 lbzip2 lrzip xz pixz lzop
               gocryptfs screen cifs-utils netcat-openbsd net-tools which gnused gnugrep
             ]} \
-            --set-default DRBL_SCRIPT_PATH "${drbl}/usr/share/drbl" \
+            --set-default DRBL_SCRIPT_PATH "${drbl}/usr/share/drbl"
         fi
       done
     done
