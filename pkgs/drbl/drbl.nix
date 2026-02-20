@@ -122,7 +122,7 @@ stdenv.mkDerivation rec {
               gawk gnused gnugrep findutils gnutar gzip bzip2 xz cpio
               rsync openssh wget curl which file
             ]} \
-            --set-default DRBL_SCRIPT_PATH "$out/usr/share/drbl" \
+            --set-default DRBL_SCRIPT_PATH "$out/usr/share/drbl"
         fi
       done
     done
