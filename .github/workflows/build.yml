@@ -75,7 +75,9 @@ jobs:
       - name: Upload to sourceforge
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          rsync -e ssh ${{ steps.iso_info.outputs.iso_path }} grassblock@frs.sourceforge.net:/home/frs/project/dumb-live-iso/releases/nix/
+          sha256sum ${{ steps.iso_info.outputs.iso_path }} > "${{ steps.iso_info.outputs.iso_name }}.sha256"
+          rsync -e ssh ${{ steps.iso_info.outputs.iso_path }} grassblock@frs.sourceforge.net:/home/frs/project/dumb-live-iso/releases/nix
+          rsync -e ssh "${{ steps.iso_info.outputs.iso_name }}.sha256" grassblock@frs.sourceforge.net:/home/frs/project/dumb-live-iso/releases/nix
 
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
