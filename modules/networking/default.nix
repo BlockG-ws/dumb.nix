@@ -31,7 +31,8 @@
   users.users.nixos = lib.mkForce {
     enable = false;
     isNormalUser = true;
-    group = "nixos";
+    #group = "nixos";
+    extraGroups = [ "networkmanager" "video" "audio" ];
   };
   
   # 创建默认用户
