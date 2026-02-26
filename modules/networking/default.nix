@@ -23,12 +23,15 @@
     };
   };
 
-  # 设置 root 密码为 "nixos"
-  # 使用 mkForce 覆盖 installation-cd-minimal.nix 中的设置
   users.users.root = {
     initialHashedPassword = lib.mkForce null;
   };
 
+  # 完全禁用 ISO 镜像默认创建的 nixos 用户
+  users.users.nixos = lib.mkForce {
+    enable = false;
+  };
+  
   # 创建默认用户
   users.users.alex = {
     isNormalUser = true;
