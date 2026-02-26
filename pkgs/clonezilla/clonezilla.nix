@@ -27,7 +27,7 @@
 , perl
 , cifs-utils
 , netcat-openbsd
-, net-tools
+, nettools
 , which
 , gnused
 , gnugrep
@@ -75,7 +75,7 @@ stdenv.mkDerivation rec {
     perl
     cifs-utils
     netcat-openbsd
-    net-tools
+    nettools
     which
   ];
 
@@ -126,7 +126,7 @@ stdenv.mkDerivation rec {
               bash coreutils perl
               drbl partclone ntfs3g partimage pigz sshfs parted gptfdisk
               dosfstools gzip bzip2 pbzip2 lbzip2 lrzip xz pixz lzop
-              gocryptfs screen cifs-utils netcat-openbsd net-tools which gnused gnugrep
+              gocryptfs screen cifs-utils netcat-openbsd nettools which gnused gnugrep
             ]} \
             --set-default DRBL_SCRIPT_PATH "${drbl}/usr/share/drbl"
         fi

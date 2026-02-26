@@ -91,6 +91,14 @@ stdenv.mkDerivation rec {
     # 修复安装后的脚本 shebang
     patchShebangs "$out"
     
+    # 修复硬编码的 /etc/drbl 路径为实际的 nix store 路径
+    for f in $(find "$out" -type f); do
+      if file "$f" | grep -q "text"; then
+        sed -i "s|/etc/drbl|$out/etc/drbl|g" "$f" || true
+        sed -i "s|/usr/share/drbl|$out/usr/share/drbl|g" "$f" || true
+      fi
+    done
+    
     # 创建 bin 目录并复制可执行文件
     mkdir -p "$out/bin"
     if [ -d "$out/usr/bin" ]; then
