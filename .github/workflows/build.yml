@@ -73,51 +73,19 @@ jobs:
           retention-days: 30
 
       - name: Upload to sourceforge
-        run: |
-          rsync -e ssh ${{ steps.iso_info.outputs.iso_path }} grassblock@frs.sourceforge.net:/home/frs/project/dumb-live-iso/releases/nix/
-
-      - name: Create checksums file
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          cd result/iso
-          sha256sum *.iso > SHA256SUMS
-          cat SHA256SUMS
+          rsync -e ssh ${{ steps.iso_info.outputs.iso_path }} grassblock@frs.sourceforge.net:/home/frs/project/dumb-live-iso/releases/nix/
 
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-          files: |
-            result/iso/*.iso
-            result/iso/SHA256SUMS
           body: |
-            ## Dumb NixOS Live ISO
+            因为 NixOS 的 ISO 文件通常较大，GitHub Releases 对于单个文件的大小有限制（通常为 2GB）。因此，我们将 ISO 文件上传到 SourceForge，并在 GitHub Release 中提供下载链接和校验和信息。
             
-            ### 特性
-            - ✅ 通过 shim 支持安全启动
-            - ✅ 预装常用的硬件测试工具和维护工具
-            - ✅ 包含官方仓库内几乎所有驱动
-            - ✅ 预置 Windows 系统维护工具（修改密码、注册表、WIM/ESD 处理）
-            - ✅ 预置 Clonezilla 和其服务端
-            - ✅ 预置 fcitx5 输入法和中文输入支持
-            - ✅ 使用 XFCE4 桌面环境
-            - ✅ 开箱即用的配置文件
-            - ✅ 支持 ZFS、SSH 连接、chroot 到其它发行版
-            
-            ### 系统信息
-            - ISO 大小: ${{ steps.iso_info.outputs.iso_size }}
-            - SHA256: `${{ steps.iso_info.outputs.sha256 }}`
-            
-            ### 默认登录信息
-            - 用户名: `nixos` / `root`
-            - 密码: `nixos`
-            
-            ### 使用说明
-            1. 下载 ISO 文件
-            2. 使用 Rufus (Windows) 或 dd (Linux) 写入 USB
-            3. 从 USB 启动系统
-            4. 系统会自动登录到 XFCE4 桌面
-            
-            详细使用说明请参考仓库中的 README_CN.md
+            ## 下载链接
+            - [SourceForge 下载链接](https://sourceforge.net/projects/dumb-live-iso/files/releases/nix/${{ steps.iso_info.outputs.iso_name }}/download)
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
