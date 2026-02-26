@@ -30,6 +30,8 @@
   # 完全禁用 ISO 镜像默认创建的 nixos 用户
   users.users.nixos = lib.mkForce {
     enable = false;
+    isNormalUser = true;
+    group = "nixos";
   };
   
   # 创建默认用户
